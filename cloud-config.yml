@@ -1,0 +1,22 @@
+#cloud-config
+
+groups:
+  - docker
+
+system_info:
+  default_user:
+    groups: ["docker"]
+
+package_update: true
+packages:
+  - docker
+  - docker.io
+  - python3
+  - python3-pip
+
+runcmd:
+  - pip3 update
+
+snap:
+  commands:
+    - 'snap install multipass-sshfs'
